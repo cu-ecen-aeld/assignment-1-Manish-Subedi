@@ -17,8 +17,15 @@ test:
     script:
         - cd ${CI_PROJECT_DIR}
         - ./assignment-autotest/docker/docker-run-test.sh
-
+    stage: unit-test
+    script: 
+        - cd ${CI_PROJECT_DIR}
+        - ./unit-test.sh
+    stage: unit-test
+    script: 
+        - cd ${CI_PROJECT_DIR}
+        - ./full-test.sh
     artifacts:
         paths:
-            - ${CI_PROJECT_DIR}/test.sh.log
+            - ${CI_PROJECT_DIR}/tests.log
         when: always
